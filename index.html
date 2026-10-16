@@ -61,8 +61,9 @@ function render(){
  if(state.certificate==="expired"){title="Swap blocked";reason="The required certificate has expired. Do not schedule or approve this assignment until validity is restored.";kind="block"}
  else if(state.training==="no"){title="Swap blocked";reason="The employee is not trained for this role. Training eligibility must be satisfied before the swap can proceed.";kind="block"}
  else if(state.conflict==="yes"){title="Manual review required";reason="An availability or schedule conflict was detected. Resolve the conflict before approving the swap.";kind="warn"}
- else if(state.hours>48 && state.customer==="urbanmart"){title="Regional approval required";reason="The proposed schedule takes the employee above 48 hours in the week. Route the request to a regional approver.";kind="warn"}
- else if(state.authority==="regional"){title="Regional approval required";reason="The selected customer policy requires regional authorization before this swap can proceed.";kind="warn"}
+ else if(state.customer==="urbanmart" && state.hours>48){title="Regional approval required";reason="UrbanMart policy: projected weekly hours exceed 48, so regional approval is required.";kind="warn"}
+ else if(state.customer==="urbanmart"){title="Manager approval required";reason="UrbanMart policy: projected weekly hours are 48 or less, so this follows the normal location-manager approval flow.";kind="warn"}
+ else if(state.authority==="regional"){title="Regional approval required";reason="The selected approval policy requires regional authorization before this swap can proceed.";kind="warn"}
  else if(state.authority==="manager"){title="Manager approval required";reason="The swap passed the configured checks, but this scenario requires a manager to make the final decision.";kind="warn"}
  else {title="Automatically approved (demo)";reason="All configured eligibility checks passed. In a production workflow, the system could approve this eligible swap automatically and record the decision.";kind="ok"}
  const box=document.getElementById("result");box.className="result "+kind;document.getElementById("decision").textContent=title;document.getElementById("reason").textContent=reason;
