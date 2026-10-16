@@ -1,57 +1,41 @@
 # Shiftwell Guardrails
+### A shift-swap decision simulator | Product Intern Case Study
 
-**An interactive shift-swap decision simulator** created as a prototype for the Shiftwell Product Intern case study.
+Shiftwell Guardrails is an interactive prototype exploring how workforce scheduling software can make shift swaps safer and reduce avoidable manual approvals.
 
-## Live demo
+## Prototype
 
-After enabling GitHub Pages, the prototype should be available at:
+**Live demo:** https://sidminul.github.io/shiftwell-guardrails/
 
-https://sidminul.github.io/shiftwell-guardrails/
+The demo lets you change four inputs and see the resulting illustrative decision:
+- **Certificate validity:** expired required credentials block the swap.
+- **Role training:** swaps involving an untrained employee are blocked.
+- **Projected weekly hours:** more than 48 hours triggers regional approval in this simplified scenario.
+- **Approval authority:** the scenario can be routed to a regional approver.
 
-## What it demonstrates
+> The demo uses sample inputs and client-side logic. It is not connected to Shiftwell systems and does not process real employee data or approvals. The live link should be used only after GitHub Pages deployment has been verified.
 
-Shiftwell serves multi-location businesses with three roles interacting around staffing and shift swaps. This prototype illustrates a product direction focused on safe, compliant scheduling and fewer unnecessary manual approvals.
+## Product thinking behind the prototype
 
-You can interactively test:
-- **Certificate status:** expired required credentials block a proposed swap.
-- **Role training:** a staff member who is not trained for the role is blocked.
-- **Weekly hours:** projected hours above 48 trigger regional approval in this simplified example.
-- **Approval authority:** a scenario can be routed to regional approval.
+The case study presents three customer requests:
+- **CarePoint Clinics:** prevent scheduling or swaps when mandatory certificates have expired.
+- **UrbanMart:** require regional approval when a schedule takes an employee beyond 48 hours per week.
+- **FreshBowl:** enable shift-swap requests and approvals through WhatsApp.
 
-## Product rationale
+The recommendation is to commit first to the two features with supplied engineering estimates and clear consequences:
+1. **CarePoint certificate eligibility guard — 1 sprint.**
+2. **UrbanMart overtime approval control — 2 sprints.**
 
-The case study presents three customer requests: certificate expiry controls from CarePoint Clinics, overtime approval controls from UrbanMart, and WhatsApp shift-swap approvals from FreshBowl.
+The remaining three sprints are capacity for discovery and a possible reusable swap-approval rules engine, conditional on engineering validating the scope and estimate. WhatsApp integration is deferred while the team investigates whether slow manual approvals—not the messaging channel alone—are the main bottleneck.
 
-The recommended delivery baseline is the two well-estimated, higher-consequence capabilities:
-1. CarePoint certificate eligibility guard (estimated 1 sprint).
-2. UrbanMart overtime approval control (estimated 2 sprints).
+## What a production version would need
 
-The remaining capacity is reserved for discovery and a possible reusable swap-approval rules engine, conditional on engineering validating scope and effort. A WhatsApp integration is deferred while the team investigates the deeper approval bottleneck.
+Before release, Shiftwell would need validated customer policies, reliable schedule and credential data, server-side rule evaluation, appropriate approver permissions, auditable decisions, exception handling, and testing of edge cases. A pilot should measure decision time, the percentage of swaps decided within 24 hours, escalation rates, and incorrect approvals.
 
-## How to use the demo
+## AI use and limitations
 
-Open the live demo (or open `index.html` locally in a browser). Change the certificate status, weekly hours, training status, and approval policy. The decision panel updates immediately.
-
-## Limitations
-
-This is a static front-end prototype with sample, client-side logic. It is not connected to Shiftwell systems and does not create or send real approvals. The 48-hour threshold and decision rules are illustrative and must be validated against customer policy before a production implementation.
-
-## Production considerations
-
-A production system would require:
-- Authoritative employee, schedule, training, and certificate data.
-- Server-side rule evaluation with explicitly defined week boundaries and shift-overlap logic.
-- Role-based access control and configurable approver routing.
-- Audit logs, exception handling, monitoring, and automated edge-case tests.
-- A pilot with baseline metrics such as time to decision, percentage approved within 24 hours, escalation rate, and incorrect-approval incidents.
-
-## Run locally
-
-No build tools or dependencies are required. Download or clone this repository and open `index.html`.
-
-## AI assistance
-
-AI assistance was used to help draft and refine the prototype and supporting product documentation. The logic and assumptions should be reviewed by the author. This demo is not a compliance guarantee.
+AI assistance was used to help draft and refine the prototype and supporting documentation. The rules and assumptions must be reviewed by the author. This is a concept demonstration, not a production compliance tool or a guarantee of regulatory compliance.
 
 ---
-*Prepared for a fictional product case study. Shiftwell and its customer names are fictional.*
+
+*Shiftwell and the customer names in this assignment are fictional. The 48-hour rule is shown as a simplified case-study assumption; actual customer policy would need to be confirmed.*
