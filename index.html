@@ -2,70 +2,70 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Shiftwell Guardrails — an interactive shift-swap decision simulator for the Product Intern case study.">
+<meta name="description" content="Shiftwell Guardrails — an interactive shift-swap decision simulator for CarePoint, UrbanMart, and FreshBowl.">
 <title>Shiftwell Guardrails — Swap Decision Simulator</title>
 <style>
 :root{--ink:#18324a;--muted:#5e6d7b;--line:#dbe3e9;--bg:#f4f7f9;--teal:#24536a}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:#202b36;font:15px/1.5 Inter,system-ui,-apple-system,Segoe UI,Arial,sans-serif}
-header{background:var(--ink);color:white;padding:28px max(20px,calc((100% - 1000px)/2))}
-.eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.75}h1{margin:6px 0;font-size:clamp(24px,4vw,34px)}header p{margin:0;color:#dce6ed}
-main{max-width:1000px;margin:26px auto;padding:0 18px 36px;display:grid;grid-template-columns:1fr .9fr;gap:18px}
-.card{background:white;border:1px solid var(--line);border-radius:14px;padding:22px;box-shadow:0 4px 16px #18324a08}
-h2{font-size:18px;color:var(--ink);margin:0 0 6px}.sub{color:var(--muted);font-size:13px;margin:0 0 20px}
-.field{margin:18px 0}label{display:block;font-weight:650;margin-bottom:8px}.choices{display:flex;gap:8px;flex-wrap:wrap}
-button.choice{border:1px solid #cbd6de;background:white;color:var(--ink);border-radius:9px;padding:10px 13px;cursor:pointer;font:inherit}
-button.choice[aria-pressed=true]{background:#e8f1f5;border-color:var(--teal);box-shadow:inset 0 0 0 1px var(--teal)}
-button:focus-visible,input:focus-visible{outline:3px solid #74aac1;outline-offset:2px}
-input[type=range]{width:100%;accent-color:var(--teal)}.hoursline{display:flex;justify-content:space-between;align-items:center}
-.hours{font-size:22px;font-weight:750;color:var(--ink)}.scale{display:flex;justify-content:space-between;color:var(--muted);font-size:12px}
-.result{border-radius:12px;padding:18px;margin-top:18px;border:1px solid var(--line);background:#f7f9fb}
-.result h3{font-size:18px;margin:0 0 7px}.result p{margin:0}.result.block{background:#fff0ef;border-color:#e9b5b0}.result.warn{background:#fff7e8;border-color:#ead19a}.result.ok{background:#edf7f1;border-color:#b5d8c2}
-.pill{display:inline-block;border-radius:999px;padding:4px 8px;font-size:11px;font-weight:750;text-transform:uppercase;letter-spacing:.04em;background:#e9eef2;color:#33485a;margin-bottom:10px}
-.note{font-size:12px;color:var(--muted);margin-top:14px}ul{padding-left:20px;margin-bottom:0}li{margin:8px 0}
-footer{max-width:1000px;margin:0 auto;padding:0 18px 28px;color:var(--muted);font-size:12px}
+header{background:var(--ink);color:white;padding:28px max(20px,calc((100% - 1000px)/2))}.eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.75}h1{margin:6px 0;font-size:clamp(24px,4vw,34px)}header p{margin:0;color:#dce6ed}
+main{max-width:1000px;margin:26px auto;padding:0 18px 36px;display:grid;grid-template-columns:1fr .9fr;gap:18px}.card{background:white;border:1px solid var(--line);border-radius:14px;padding:22px;box-shadow:0 4px 16px #18324a08}
+h2{font-size:18px;color:var(--ink);margin:0 0 6px}.sub{color:var(--muted);font-size:13px;margin:0 0 20px}.field{margin:18px 0}label{display:block;font-weight:650;margin-bottom:8px}.choices{display:flex;gap:8px;flex-wrap:wrap}
+button.choice{border:1px solid #cbd6de;background:white;color:var(--ink);border-radius:9px;padding:10px 13px;cursor:pointer;font:inherit}button.choice[aria-pressed=true]{background:#e8f1f5;border-color:var(--teal);box-shadow:inset 0 0 0 1px var(--teal)}
+button:focus-visible,input:focus-visible{outline:3px solid #74aac1;outline-offset:2px}input[type=range]{width:100%;accent-color:var(--teal)}.hoursline{display:flex;justify-content:space-between;align-items:center}.hours{font-size:22px;font-weight:750;color:var(--ink)}.scale{display:flex;justify-content:space-between;color:var(--muted);font-size:12px}
+.result{border-radius:12px;padding:18px;margin-top:18px;border:1px solid var(--line);background:#f7f9fb}.result h3{font-size:18px;margin:0 0 7px}.result p{margin:0}.result.block{background:#fff0ef;border-color:#e9b5b0}.result.warn{background:#fff7e8;border-color:#ead19a}.result.ok{background:#edf7f1;border-color:#b5d8c2}
+.pill{display:inline-block;border-radius:999px;padding:4px 8px;font-size:11px;font-weight:750;text-transform:uppercase;letter-spacing:.04em;background:#e9eef2;color:#33485a;margin-bottom:10px}.note{font-size:12px;color:var(--muted);margin-top:14px}ul{padding-left:20px;margin-bottom:0}li{margin:8px 0}footer{max-width:1000px;margin:0 auto;padding:0 18px 28px;color:var(--muted);font-size:12px}
 @media(max-width:720px){main{grid-template-columns:1fr;margin-top:16px}.card{padding:18px}}
-</style>
-</head>
+</style></head>
 <body>
-<header><div class="eyebrow">Shiftwell · Product concept</div><h1>Guardrails</h1><p>Swap decision simulator — compliance, training, and overtime checks</p></header>
+<header><div class="eyebrow">Shiftwell · Product concept</div><h1>Guardrails</h1><p>Shift-swap simulator — automatic approvals, compliance, training, and overtime checks</p></header>
 <main>
 <section class="card" aria-labelledby="test-title">
-<h2 id="test-title">Test a proposed shift swap</h2><p class="sub">Change the inputs to see the illustrative decision logic.</p>
+<h2 id="test-title">Configure a shift swap</h2><p class="sub">Choose a customer scenario and change the inputs to test the decision logic.</p>
+<div class="field"><label>Customer scenario</label><div class="choices" data-group="customer">
+<button class="choice" data-value="freshbowl" aria-pressed="true">FreshBowl</button><button class="choice" data-value="carepoint" aria-pressed="false">CarePoint Clinics</button><button class="choice" data-value="urbanmart" aria-pressed="false">UrbanMart</button></div></div>
+<div id="customerDescription" class="note">FreshBowl · Automatically approve eligible swaps when all configured checks pass; route exceptions for review.</div>
 <div class="field"><label>Required certificate status</label><div class="choices" data-group="certificate">
 <button class="choice" data-value="valid" aria-pressed="true">Valid</button><button class="choice" data-value="expired" aria-pressed="false">Expired</button><button class="choice" data-value="not_required" aria-pressed="false">Not required</button></div></div>
 <div class="field"><div class="hoursline"><label for="hours">Projected weekly hours</label><span class="hours"><span id="hoursValue">42</span> hrs</span></div><input id="hours" type="range" min="20" max="60" value="42"><div class="scale"><span>20 hrs</span><span>40 hrs</span><span>60 hrs</span></div></div>
 <div class="field"><label>Trained for the role?</label><div class="choices" data-group="training"><button class="choice" data-value="yes" aria-pressed="true">Yes</button><button class="choice" data-value="no" aria-pressed="false">No</button></div></div>
-<div class="field"><label>Approval policy</label><div class="choices" data-group="authority"><button class="choice" data-value="manager" aria-pressed="true">Location manager</button><button class="choice" data-value="regional" aria-pressed="false">Regional approval required</button></div></div>
-<p class="note">Demo assumptions: expired required certificates and missing training block the swap; more than 48 projected weekly hours requires regional approval. Real policy must be confirmed with the customer.</p>
+<div class="field"><label>Availability conflict?</label><div class="choices" data-group="conflict"><button class="choice" data-value="no" aria-pressed="true">No conflict</button><button class="choice" data-value="yes" aria-pressed="false">Conflict</button></div></div>
+<div class="field"><label>Approval policy</label><div class="choices" data-group="authority"><button class="choice" data-value="automatic" aria-pressed="true">Auto-approve eligible swaps</button><button class="choice" data-value="manager" aria-pressed="false">Manager review</button><button class="choice" data-value="regional" aria-pressed="false">Regional approval</button></div></div>
+<p class="note">Illustrative rules only. Required credentials, training, availability, weekly-hour thresholds, and customer approval policies must be validated before production use.</p>
 </section>
 <section class="card" aria-labelledby="decision-title">
 <h2 id="decision-title">Decision</h2><p class="sub">The result updates as you change the scenario.</p>
-<div id="result" class="result ok" aria-live="polite"><span class="pill">Illustrative result</span><h3 id="decision">Eligible for manager approval</h3><p id="reason">No configured compliance or overtime blocker was triggered.</p></div>
-<h2 style="margin-top:24px">Why these checks?</h2>
-<ul><li><b>Compliance first:</b> required credentials must be valid for the assigned role.</li><li><b>Capability:</b> a swap should not place an untrained employee in a role.</li><li><b>Policy-based routing:</b> overtime or configured rules can escalate a decision to a regional approver.</li><li><b>Auditability:</b> a production system should record the rule triggered, decision, approver, and timestamp.</li></ul>
+<div id="result" class="result ok" aria-live="polite"><span class="pill">Illustrative result</span><h3 id="decision">Auto-approved</h3><p id="reason">All configured checks passed.</p></div>
+<h2 style="margin-top:24px">How the three scenarios differ</h2>
+<ul><li><b>FreshBowl:</b> automatically approve eligible swaps; route exceptions instead of leaving every request in a manual queue.</li><li><b>CarePoint Clinics:</b> block a swap when a required certificate has expired.</li><li><b>UrbanMart:</b> require regional approval when a schedule takes an employee above 48 hours per week.</li><li><b>All scenarios:</b> check training and availability before approving.</li></ul>
 <p class="note">This is a front-end prototype using local sample inputs. It is not connected to Shiftwell systems, does not send approvals, and is not a production compliance tool.</p>
-</section>
-</main>
+</section></main>
 <footer>Shiftwell Guardrails · Product intern case study prototype</footer>
 <script>
-const state={certificate:"valid",training:"yes",authority:"manager",hours:42};
+const state={customer:"freshbowl",certificate:"valid",training:"yes",conflict:"no",authority:"automatic",hours:42};
+const descriptions={freshbowl:"FreshBowl · Automatically approve eligible swaps when all configured checks pass; route exceptions for review.",carepoint:"CarePoint Clinics · Required certificates must be valid before a nurse or other credentialed employee can cover the shift.",urbanmart:"UrbanMart · A schedule that takes an employee above 48 hours per week requires regional approval."};
 document.querySelectorAll("[data-group]").forEach(group=>group.querySelectorAll("button").forEach(btn=>btn.addEventListener("click",()=>{
-  const key=group.dataset.group;state[key]=btn.dataset.value;
-  group.querySelectorAll("button").forEach(b=>b.setAttribute("aria-pressed",String(b===btn)));
-  render();
+ const key=group.dataset.group;state[key]=btn.dataset.value;
+ group.querySelectorAll("button").forEach(b=>b.setAttribute("aria-pressed",String(b===btn)));
+ if(key==="customer"){state.authority=key==="customer"?(state.customer==="freshbowl"?"automatic":state.authority):state.authority;
+  if(state.customer==="freshbowl")state.authority="automatic";
+  if(state.customer==="carepoint")state.authority="manager";
+  if(state.customer==="urbanmart")state.authority="regional";
+  document.querySelectorAll('[data-group="authority"] button').forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.value===state.authority)));
+  document.getElementById("customerDescription").textContent=descriptions[state.customer];
+ }
+ render();
 })));
-const range=document.getElementById("hours");
-range.addEventListener("input",()=>{state.hours=Number(range.value);document.getElementById("hoursValue").textContent=state.hours;render()});
+const range=document.getElementById("hours");range.addEventListener("input",()=>{state.hours=Number(range.value);document.getElementById("hoursValue").textContent=state.hours;render()});
 function render(){
  let title,reason,kind;
- if(state.certificate==="expired"){title="Block swap";reason="The required certificate has expired. Do not schedule or approve this assignment until validity is restored.";kind="block"}
- else if(state.training==="no"){title="Block swap";reason="The employee is not trained for this role. Training eligibility must be satisfied before the swap can proceed.";kind="block"}
- else if(state.hours>48){title="Regional approval required";reason="The proposed schedule exceeds 48 hours in the week. Route the request to the regional approver.";kind="warn"}
- else if(state.authority==="regional"){title="Regional approval required";reason="The selected policy requires regional authorization before this swap can proceed.";kind="warn"}
- else {title="Eligible for manager approval";reason="No configured compliance or overtime blocker was triggered. A manager can review the request under the illustrative policy.";kind="ok"}
- const box=document.getElementById("result");box.className="result "+kind;
- document.getElementById("decision").textContent=title;document.getElementById("reason").textContent=reason;
+ if(state.certificate==="expired"){title="Swap blocked";reason="The required certificate has expired. Do not schedule or approve this assignment until validity is restored.";kind="block"}
+ else if(state.training==="no"){title="Swap blocked";reason="The employee is not trained for this role. Training eligibility must be satisfied before the swap can proceed.";kind="block"}
+ else if(state.conflict==="yes"){title="Manual review required";reason="An availability or schedule conflict was detected. Resolve the conflict before approving the swap.";kind="warn"}
+ else if(state.hours>48 && state.customer==="urbanmart"){title="Regional approval required";reason="The proposed schedule takes the employee above 48 hours in the week. Route the request to a regional approver.";kind="warn"}
+ else if(state.authority==="regional"){title="Regional approval required";reason="The selected customer policy requires regional authorization before this swap can proceed.";kind="warn"}
+ else if(state.authority==="manager"){title="Manager approval required";reason="The swap passed the configured checks, but this scenario requires a manager to make the final decision.";kind="warn"}
+ else {title="Automatically approved (demo)";reason="All configured eligibility checks passed. In a production workflow, the system could approve this eligible swap automatically and record the decision.";kind="ok"}
+ const box=document.getElementById("result");box.className="result "+kind;document.getElementById("decision").textContent=title;document.getElementById("reason").textContent=reason;
 }
 render();
-</script>
-</body></html>
+</script></body></html>
