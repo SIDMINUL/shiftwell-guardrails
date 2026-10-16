@@ -3,45 +3,41 @@
 
 **[Open the live prototype →](https://sidminul.github.io/shiftwell-guardrails/)**
 
-Shiftwell Guardrails is an interactive concept prototype exploring how workforce scheduling software can make shift swaps safer while reducing avoidable manual approvals.
+Shiftwell Guardrails is an interactive concept prototype showing how workforce scheduling software can automatically approve eligible swaps while blocking unsafe requests and escalating exceptions.
 
 ## Try the prototype
 
-Change the inputs in the demo to see how the illustrative decision changes:
+Select a customer scenario and test the decision logic:
 
-- **Certificate validity:** an expired required certificate blocks the swap.
-- **Role training:** an employee who is not trained for the role is blocked.
-- **Projected weekly hours:** exceeding 48 hours triggers regional approval in this simplified scenario.
-- **Approval authority:** review how the request is routed for approval.
+- **FreshBowl — automatic swaps:** eligible swaps can be automatically approved in the demo when the configured checks pass. Conflicts or policy exceptions require review.
+- **CarePoint Clinics — credential guard:** a swap is blocked when a required certificate has expired.
+- **UrbanMart — overtime control:** a schedule taking an employee above 48 hours per week requires regional approval.
+- **Shared eligibility checks:** training and availability are checked across scenarios.
 
-The prototype uses sample inputs and client-side logic. It is not connected to Shiftwell systems, does not process real employee data, and does not create real approvals.
+The prototype uses sample inputs and client-side logic. It is not connected to Shiftwell systems, does not process real employee data, and does not create real approvals. Its rules are illustrative and require customer and engineering validation before production use.
 
 ## Product recommendation
 
-The case study covers three customer requests:
+The case study covers three customer needs:
 
-- **CarePoint Clinics:** prevent shifts or swaps when mandatory credentials have expired.
-- **UrbanMart:** require regional approval when a schedule takes an employee above 48 hours per week.
-- **FreshBowl:** support shift-swap requests and approvals through WhatsApp.
+| Customer | Proposed capability | Estimated effort from case brief |
+|---|---|---:|
+| CarePoint Clinics | Block swaps when mandatory certificates have expired | 1 sprint |
+| UrbanMart | Route schedules exceeding 48 weekly hours to regional approval | 2 sprints |
+| FreshBowl | Automatically approve eligible swaps and send exceptions for review | Not estimated in the brief |
 
-The recommended first commitments are the two scoped features with supplied engineering estimates and clear customer consequences:
-
-| Proposed work | Estimated effort |
-|---|---:|
-| CarePoint certificate eligibility guard | 1 sprint |
-| UrbanMart overtime approval control | 2 sprints |
-
-The remaining three sprints are capacity for discovery and a possible reusable swap-approval rules engine, only if engineering validates its scope and estimate. WhatsApp integration is deferred while the team investigates whether slow manual approvals—not the messaging channel alone—are the main bottleneck.
+The proposed initial commitments are CarePoint's certificate eligibility guard and UrbanMart's overtime approval control. The remaining three sprints are capacity for discovery and a possible reusable swap-approval rules engine, conditional on engineering validating scope and effort. FreshBowl's automatic-swap workflow should be explored as a reusable rules capability; the prototype does not imply that this work has already been committed or estimated.
 
 ## What a production version would need
 
-Before release, Shiftwell would need validated customer policies, reliable schedule and credential data, server-side rule evaluation, appropriate approver permissions, auditable decisions, exception handling, and edge-case testing.
+Before release, Shiftwell would need validated customer policies, reliable schedule and credential data, server-side rule evaluation, appropriate approver permissions, auditable decisions, exception handling, and edge-case testing. Automatic approval should occur only when all mandatory checks pass.
 
 A pilot should measure:
 - Time from swap request to decision
 - Percentage of requests decided within 24 hours
-- Escalation rates and approval workload
-- Incorrect approvals and blocked attempts
+- Eligible swaps automatically approved
+- Exceptions escalated for review
+- Incorrect approvals, blocked attempts, and manager workload
 
 ## AI use and limitations
 
@@ -49,4 +45,4 @@ AI assistance was used to help draft and refine the prototype and supporting doc
 
 ---
 
-*Shiftwell and the customer names in this assignment are fictional. The 48-hour threshold is a simplified case-study assumption; actual customer policy, including week boundaries and exceptions, would need to be confirmed.*
+*Shiftwell and the customer names in this assignment are fictional. The 48-hour threshold is a simplified case-study assumption; actual customer policies, week boundaries, exceptions, and automatic-approval criteria would need to be confirmed.*
