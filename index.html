@@ -42,14 +42,14 @@ button:focus-visible,input:focus-visible{outline:3px solid #74aac1;outline-offse
 <footer>Shiftwell Guardrails · Product intern case study prototype</footer>
 <script>
 const state={customer:"freshbowl",certificate:"valid",training:"yes",conflict:"no",authority:"automatic",hours:42};
-const descriptions={freshbowl:"FreshBowl · Automatically approve eligible swaps when all configured checks pass; route exceptions for review.",carepoint:"CarePoint Clinics · Required certificates must be valid before a nurse or other credentialed employee can cover the shift.",urbanmart:"UrbanMart · A schedule that takes an employee above 48 hours per week requires regional approval."};
+const descriptions={freshbowl:"FreshBowl · Automatically approve eligible swaps when all configured checks pass; route exceptions for review.",carepoint:"CarePoint Clinics · Required certificates must be valid before a nurse or other credentialed employee can cover the shift.",urbanmart:"UrbanMart · Up to 48 hours follows normal manager approval; above 48 hours requires regional approval."};
 document.querySelectorAll("[data-group]").forEach(group=>group.querySelectorAll("button").forEach(btn=>btn.addEventListener("click",()=>{
  const key=group.dataset.group;state[key]=btn.dataset.value;
  group.querySelectorAll("button").forEach(b=>b.setAttribute("aria-pressed",String(b===btn)));
  if(key==="customer"){state.authority=key==="customer"?(state.customer==="freshbowl"?"automatic":state.authority):state.authority;
   if(state.customer==="freshbowl")state.authority="automatic";
   if(state.customer==="carepoint")state.authority="manager";
-  if(state.customer==="urbanmart")state.authority="regional";
+  if(state.customer==="urbanmart")state.authority="manager";
   document.querySelectorAll('[data-group="authority"] button').forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.value===state.authority)));
   document.getElementById("customerDescription").textContent=descriptions[state.customer];
  }
